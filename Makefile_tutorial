@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_tutorial                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/21 18:03:45 by daalmeid          #+#    #+#              #
+#    Updated: 2021/10/21 18:27:40 by daalmeid         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Para chamar uma regra na linha de comandos --> make <nome da regra>
+Se for escrito apenas make, a primeira regra e executada
+
+regra_a: */aqui escreve regras a executar antes desta*/
+	echo "regra A" */fazer sempre tab/*
+	@echo "regra A" */ desta forma esta linha nao e escrita, apenas regra A /*
+regra_b: regra_a */vai executar regra_a primeiro
+	echo "regra B"
+TEXT = "42 Lisboa" */Permite criar uma variavel (SEMPRE em maiusculas) a utilizar no resto do makefile*/
+
+regra_c:
+	echo $(TEXT) */permite escrever o conteudo da variavel/*
+
+Exemplo:
+
+NAME = Nome_do_programa */NAME e uma convencao, podia ser outra coisa/*
+
+SRC = file1.c file2.c etc.c */Permite listar todos os programas a compilar; usar \ se for preciso mudar de linha/*
+
+all: $(NAME)
+
+$(NAME): */Regra que vai executar a compilacao e dar o nome ao programa/*
+	gcc -o $(NAME) $(SRC)
+
+clean:
+	/bin/rm -f *.o */Elimina todos os ficheiros .o criados na compilacao;
+				   */pode ser aplicada a outros ficheiros inuteis/*
+
+fclean: clean
+	/bin/rm -f $(NAME) */remove ficheiros .o e o executavel criado/*
+
+re: fclean all */Limpa tudo o que foi criado e volta a compilar/*
