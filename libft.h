@@ -6,7 +6,7 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:37:12 by daalmeid          #+#    #+#             */
-/*   Updated: 2021/10/28 18:34:04 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:18:50 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*ft)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+char	*get_next_line(int fd);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
 #endif
