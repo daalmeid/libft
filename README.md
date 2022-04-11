@@ -8,7 +8,7 @@ that will prove to be useful in the future.
 
 To create that library, follow these steps:
 
-	git clone https://github.com/R4meau/libft
+	git clone https://github.com/daalmeid/libft.git
 	cd libft
 	make (to include functions applied to lists, run "make bonus" instead)
   You should create a file called **libft.a** and be able to use it in your compilation.
